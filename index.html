@@ -7,41 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="logo">
-    <img src="https://i.postimg.cc/vZy0qyBK/file-00000000aba061faba1cd3e6d93b1ea9.png" alt="STL Logo" class="logo-img">
-  </div>
+  <div class="roulette-container">
+    <img src="https://img.freepik.com/vector-premium/ruleta-linea-casino-tabla-juego-sistema-vector-microprocesadores_53562-4007.jpg" alt="Tablero" class="roulette-image">
+    
+    <!-- Fichas (clicables) -->
+    <div class="chip-zone black" onclick="selectChip(50)"></div>
+    <div class="chip-zone red" onclick="selectChip(100)"></div>
+    <div class="chip-zone blue" onclick="selectChip(200)"></div>
+    <div class="chip-zone pink" onclick="selectChip(500)"></div>
+    <div class="chip-zone gold" onclick="selectChip(2500)"></div>
 
-  <div class="controls">
-    <label for="betAmount">💰 Apuesta:</label>
-    <select id="betAmount">
-      <option value="100">$100</option>
-      <option value="200">$200</option>
-      <option value="300">$300</option>
-    </select>
-    <button onclick="undoLastBet()">↩️ Deshacer</button>
-    <button onclick="doubleBets()">x2 🔁</button>
-    <button onclick="clearAllBets()">🗑️ Borrar Todo</button>
-    <button onclick="toggleHistory()">📋 Ver Historial</button>
-  </div>
+    <!-- Ejemplo de números -->
+    <div class="number-zone" style="top: 45%; left: 20%;" data-number="17" onclick="placeBet(this)"></div>
+    <div class="number-zone" style="top: 45%; left: 30%;" data-number="18" onclick="placeBet(this)"></div>
+    <div class="number-zone" style="top: 45%; left: 40%;" data-number="19" onclick="placeBet(this)"></div>
 
-  <div class="roulette">
-    <div class="zero number green" onclick="selectNumber(this)">0<div class="chip">$0</div></div>
-    <div class="grid" id="grid"></div>
+    <!-- Historial -->
+    <div id="historyBar" class="history-bar hidden"></div>
+    <button class="toggle-btn" onclick="toggleHistory()">📋 Historial</button>
   </div>
-
-  <div class="bets">
-    <button onclick="alert('Rojo')">🔴 Rojo</button>
-    <button onclick="alert('Negro')">⚫ Negro</button>
-    <button onclick="alert('Par')">Par</button>
-    <button onclick="alert('Impar')">Impar</button>
-    <button onclick="alert('1ª Docena')">1ª Docena</button>
-    <button onclick="alert('2ª Docena')">2ª Docena</button>
-    <button onclick="alert('3ª Docena')">3ª Docena</button>
-    <button onclick="alert('1-18')">1–18</button>
-    <button onclick="alert('19-36')">19–36</button>
-  </div>
-
-  <div id="historyBar" class="history-bar hidden"></div>
 
   <script src="script.js"></script>
 </body>
