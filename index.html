@@ -5,6 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STL Roulette</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', sans-serif;
+      background-image: url('https://img.freepik.com/free-vector/casino-poker-green-table-background_1017-30317.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .logo {
+      font-size: 2em;
+      color: gold;
+      text-shadow: 2px 2px 8px red, 4px 4px 12px #000;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .roulette-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 100vw;
+    }
+
+    .zero-slot {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      background-color: green;
+    }
+
+    .table-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 5px;
+      margin: 10px 0;
+      max-width: 95vw;
+    }
+
+    .number {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      font-weight: bold;
+      border-radius: 6px;
+      color: white;
+      background-color: darkgreen;
+      border: 2px solid #ccc;
+      box-shadow: 0 0 3px #000;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .number.red { background-color: crimson; }
+    .number.black { background-color: black; }
+    .number.green { background-color: green; }
+
+    .chip {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Casino_chip_50.svg');
+      background-size: cover;
+      display: none;
+    }
+
+    .number.selected .chip {
+      display: block;
+    }
+
+    .bets {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .bets button {
+      padding: 6px 12px;
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 5px #000;
+    }
+  </style>
 </head>
 <body>
   <div class="logo">
@@ -13,10 +123,48 @@
     <img src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png" alt="dice" />
   </div>
 
-  <div class="roulette-board" id="board">
-    <!-- Números insertados con JS -->
+  <div class="roulette-layout">
+    <div class="zero-slot number green" onclick="selectNumber(this)">0<div class="chip"></div></div>
+
+    <div class="table-grid" id="grid"></div>
+
+    <div class="bets">
+      <button onclick="alert('Apostaste a Rojo')">🔴 Rojo</button>
+      <button onclick="alert('Apostaste a Negro')">⚫ Negro</button>
+      <button onclick="alert('Apostaste a Par')">🔢 Par</button>
+      <button onclick="alert('Apostaste a Impar')">🔢 Impar</button>
+      <button onclick="alert('Apostaste al 1–18')">1 – 18</button>
+      <button onclick="alert('Apostaste al 19–36')">19 – 36</button>
+      <button onclick="alert('Apostaste a la 1ª Docena')">1ª Docena</button>
+      <button onclick="alert('Apostaste a la 2ª Docena')">2ª Docena</button>
+      <button onclick="alert('Apostaste a la 3ª Docena')">3ª Docena</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
+    const grid = document.getElementById("grid");
+
+    function createCell(number) {
+      const div = document.createElement("div");
+      div.classList.add("number");
+      if (redNumbers.includes(number)) {
+        div.classList.add("red");
+      } else {
+        div.classList.add("black");
+      }
+      div.innerHTML = number + '<div class="chip"></div>';
+      div.onclick = () => div.classList.toggle("selected");
+      return div;
+    }
+
+    for (let i = 1; i <= 36; i++) {
+      grid.appendChild(createCell(i));
+    }
+
+    function selectNumber(el) {
+      el.classList.toggle("selected");
+    }
+  </script>
 </body>
 </html>
