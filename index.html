@@ -1,92 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STL Roulette</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial Black', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1616469832831-98e6c09b2840');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-
-    .logo {
-      font-size: 3em;
-      color: gold;
-      text-shadow: 2px 2px 8px red, 4px 4px 12px #000;
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .logo img {
-      width: 50px;
-      height: 50px;
-    }
-
-    .roulette-board {
-      background: rgba(0, 0, 0, 0.85);
-      border: 4px solid gold;
-      border-radius: 20px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 80px);
-      grid-gap: 10px;
-    }
-
-    .number {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      border-radius: 12px;
-      color: white;
-      background-color: darkgreen;
-      border: 2px solid #ccc;
-      box-shadow: 0 0 5px #000;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .number.red {
-      background-color: crimson;
-    }
-
-    .number.black {
-      background-color: black;
-    }
-
-    .chip {
-      position: absolute;
-      bottom: -10px;
-      right: -10px;
-      width: 30px;
-      height: 30px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Casino_chip_50.svg');
-      background-size: cover;
-      display: none;
-    }
-
-    .number.selected .chip {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="logo">
@@ -95,22 +13,10 @@
     <img src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png" alt="dice" />
   </div>
 
-  <div class="roulette-board">
-    <div class="number red" onclick="selectNumber(this)">1<div class="chip"></div></div>
-    <div class="number black" onclick="selectNumber(this)">2<div class="chip"></div></div>
-    <div class="number red" onclick="selectNumber(this)">3<div class="chip"></div></div>
-    <div class="number black" onclick="selectNumber(this)">4<div class="chip"></div></div>
-    <div class="number red" onclick="selectNumber(this)">5<div class="chip"></div></div>
-    <div class="number black" onclick="selectNumber(this)">6<div class="chip"></div></div>
-    <div class="number red" onclick="selectNumber(this)">7<div class="chip"></div></div>
-    <div class="number black" onclick="selectNumber(this)">8<div class="chip"></div></div>
-    <div class="number red" onclick="selectNumber(this)">9<div class="chip"></div></div>
+  <div class="roulette-board" id="board">
+    <!-- Números insertados con JS -->
   </div>
 
-  <script>
-    function selectNumber(element) {
-      element.classList.toggle('selected');
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
