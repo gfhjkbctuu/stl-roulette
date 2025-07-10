@@ -9,8 +9,19 @@
 <body>
   <div class="logo">🦁 STL Roulette 🎰</div>
 
+  <div class="controls">
+    <label for="betAmount">💰 Apuesta:</label>
+    <select id="betAmount">
+      <option value="100">$100</option>
+      <option value="200">$200</option>
+      <option value="300">$300</option>
+    </select>
+    <button onclick="undoLastBet()">↩️ Deshacer</button>
+    <button onclick="doubleBets()">x2 🔁</button>
+  </div>
+
   <div class="roulette">
-    <div class="zero number green" onclick="selectNumber(this)">0<div class="chip">$50</div></div>
+    <div class="zero number green" onclick="selectNumber(this)">0<div class="chip">$0</div></div>
     <div class="grid" id="grid"></div>
   </div>
 
