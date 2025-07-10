@@ -23,6 +23,25 @@ body {
   gap: 8px;
 }
 
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls select,
+.controls button {
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
 .roulette {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -66,19 +85,20 @@ body {
 
 .chip {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 22px;
-  height: 22px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
   background: gold;
   color: black;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: bold;
   border-radius: 50%;
   border: 1px solid #000;
   display: none;
   text-align: center;
-  line-height: 22px;
+  line-height: 28px;
 }
 
 .number.selected .chip {
