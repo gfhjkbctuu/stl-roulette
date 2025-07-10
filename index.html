@@ -18,6 +18,8 @@
     </select>
     <button onclick="undoLastBet()">↩️ Deshacer</button>
     <button onclick="doubleBets()">x2 🔁</button>
+    <button onclick="clearAllBets()">🗑️ Borrar Todo</button>
+    <button onclick="toggleHistory()">📋 Ver Historial</button>
   </div>
 
   <div class="roulette">
@@ -36,6 +38,9 @@
     <button onclick="alert('1-18')">1–18</button>
     <button onclick="alert('19-36')">19–36</button>
   </div>
+
+  <!-- Historial flotante -->
+  <div id="historyBar" class="history-bar hidden"></div>
 
   <script src="script.js"></script>
 </body>

@@ -62,6 +62,43 @@ function doubleBets() {
   }
 }
 
+function clearAllBets() {
+  for (let number in bets) {
+    bets[number] = 0;
+    const cell = document.querySelector(`.number[data-number="${number}"]`);
+    const chip = cell.querySelector('.chip');
+    chip.textContent = `$0`;
+    chip.style.display = 'none';
+    cell.classList.remove('selected');
+  }
+  history.length = 0;
+}
+
+function toggleHistory() {
+  const historyBar = document.getElementById('historyBar');
+  if (historyBar.classList.contains('hidden')) {
+    let content = '🎲 Apuestas actuales: ';
+    const apuestas = [];
+
+    for (let number in bets) {
+      if (bets[number] > 0) {
+        apuestas.push(`${number}: $${bets[number]}`);
+      }
+    }
+
+    if (apuestas.length === 0) {
+      content += 'ninguna apuesta activa.';
+    } else {
+      content += apuestas.join(' | ');
+    }
+
+    historyBar.innerText = content;
+    historyBar.classList.remove('hidden');
+  } else {
+    historyBar.classList.add('hidden');
+  }
+}
+
 for (let row = 0; row < 12; row++) {
   grid.appendChild(createNumber(3 * row + 3));
   grid.appendChild(createNumber(3 * row + 2));
