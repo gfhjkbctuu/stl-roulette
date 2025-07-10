@@ -8,34 +8,34 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .logo {
-  font-size: 1.5em;
-  color: gold;
-  text-shadow: 2px 2px 5px red, 4px 4px 8px #000;
-  margin: 10px 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  padding: 10px;
+}
+.logo-img {
+  width: 200px;
+  height: auto;
+  display: block;
 }
 
 .controls {
   display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
   flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .controls select,
 .controls button {
   font-size: 14px;
-  padding: 6px;
+  padding: 5px 10px;
   border-radius: 6px;
   font-weight: bold;
   border: none;
@@ -57,7 +57,7 @@ body {
   background: green;
   font-weight: bold;
   border: 2px solid gold;
-  font-size: 1.2em;
+  font-size: 1em;
   position: relative;
   cursor: pointer;
 }
@@ -88,17 +88,17 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   background: gold;
   color: black;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
   border-radius: 50%;
   border: 1px solid #000;
   display: none;
   text-align: center;
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .number.selected .chip {
@@ -108,10 +108,10 @@ body {
 .bets {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 100vw;
+  width: 95vw;
   max-width: 400px;
-  gap: 4px;
-  margin-top: 10px;
+  gap: 5px;
+  margin: 10px 0;
 }
 
 .bets button {
